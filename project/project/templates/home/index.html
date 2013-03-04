@@ -17,12 +17,12 @@
 
 	{% for noticia in noticias %}
 	<div class="row-fluid noticia">
-		<h2 class="span12"><a href="{% url 'ver_noticia noticia.codigo' %}">{{noticia.titulo}}</a></h2>
+		<h2 class="span12"><a href="{% url 'ver_noticia' noticia.codigo %}">{{noticia.titulo}}</a></h2>
 		<div class="row-fluid">
 			<div class="span8">
-				{{noticia.contenido|striptags|truncatewords:130|safe}} <a href="{% url 'ver_noticia noticia.codigo' %}"> ver más</a>
+				{{noticia.contenido|striptags|truncatewords:130|safe}} <a href="{% url 'ver_noticia' noticia.codigo %}"> ver más</a>
 			</div>
-			<a href="{% url 'ver_noticia noticia.codigo' %}">
+			<a href="{% url 'ver_noticia' noticia.codigo %}">
 				<img class="span4" src="{{noticia.imagen_reporte}}" width="250px"/>
 			</a>
 		</div>
