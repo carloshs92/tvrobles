@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Django settings for project project.
 from os.path import dirname, join, realpath, split
-import dj_database_url
-import os
+#import dj_database_url
+#import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
