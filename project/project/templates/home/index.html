@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/slidorion.css" />
+{% endblock %}
+		
+{% block nav %}
+	{% include 'includes/banner.html' %}
+{% endblock %}
+
+{% block contenido %}
+<div class="row-fluid">
+	<ul class="span12 lista_superior">
+		<li><a href="{% url 'index' %}">Inicio</a></li>
+	</ul>
+</div>
+
+	{% for noticia in noticias %}
+	<div class="row-fluid noticia">
+		<h2 class="span12"><a href="{% url 'ver_noticia noticia.codigo' %}">{{noticia.titulo}}</a></h2>
+		<div class="row-fluid">
+			<div class="span8">
+				{{noticia.contenido|striptags|truncatewords:130|safe}} <a href="{% url 'ver_noticia noticia.codigo' %}"> ver más</a>
+			</div>
+			<a href="{% url 'ver_noticia noticia.codigo' %}">
+				<img class="span4" src="{{noticia.imagen_reporte}}" width="250px"/>
+			</a>
+		</div>
+		
+	</div>
+	{% endfor %}
+
+{% endblock %}
+
+{% block resourcesjs %}
+	<script src="{{ STATIC_URL }}js/jquery.easing.js" type="text/javascript"></script>
+	<script src="{{ STATIC_URL }}js/jquery.slidorion.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" >
+	$(document).ready(function(){
+		$('#slidorion').slidorion({
+			speed: 1000,
+			interval: 4000,
+			effect: 'slideLeft'
+		});
+	});
+</script>
+
+				
+{% endblock %}

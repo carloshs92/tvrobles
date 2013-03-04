@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="row-fluid">
+	<ul class="span12 lista_superior">
+		<li><a href="{% url index %}">Inicio</a></li>
+	</ul>
+</div>
+<div class="row-fluid noticia_detalle">
+	<h2>{{noticia.titulo}}</h2>
+	
+	<div class="datos">
+		<span>{{noticia.autor.nombre}} {{noticia.autor.apellido}} </span> | <span> {{noticia.fecha_creacion}}</span>
+	</div>
+	
+	<div class="contenido">
+		{{noticia.contenido|safe}}
+	</div>
+	
+	<div class="categorias">
+	<span>Categorias</span><ul class="link">{% for cat in noticia.categoria.all %}<li><a href="#">{{cat.titulo}}</a></li>{% endfor %}</ul>
+	</div>
+	
+	<h3>Sobre el autor</h3>
+	<div class="autor">{{noticia.autor.nombre}} {{noticia.autor.apellido}}</div>
+	<div class="autor_descrip">
+		<img src="{{MEDIA_URL}}{{noticia.autor.imagen}}" width="120"/>
+		<span>{{noticia.autor.descripcion}}</span>
+		
+	</div>
+</div>
+
+
+{% endblock %}
+
+
