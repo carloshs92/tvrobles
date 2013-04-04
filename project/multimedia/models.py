@@ -27,7 +27,7 @@ class Foto(models.Model):
     titulo = models.CharField(verbose_name=u'Titulo', max_length=35)
     descripcion = models.TextField(verbose_name=u'Acerca de la Galería', max_length=150, blank=True, null=True)
     imagen = models.URLField(verbose_name=u'Foto')
-    galeria = models.ManyToManyField(Galeria, verbose_name=u'Galeria')
+    galeria = models.ForeignKey(Galeria, verbose_name=u'Galeria')
     class Meta:
         db_table = u'tb_foto'
         verbose_name = u'Foto'
@@ -35,3 +35,5 @@ class Foto(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
+
