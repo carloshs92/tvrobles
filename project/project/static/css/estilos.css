@@ -13,14 +13,22 @@ header h3{float:left;margin-top:-10px;}
 header form{float:right;margin-top:40px;}header form .btn{margin-top:-10px;}
 section aside{height:auto;float:left;}section aside ul#menu_lateral{margin-top:20px;}section aside ul#menu_lateral li{padding:5px 1px;}section aside ul#menu_lateral li a{color:#0d0d0d;}
 section aside ul#menu_lateral li.principal{width:80%;}section aside ul#menu_lateral li.principal .menu{background:#2f6829;border-radius:5px;box-shadow:0px 0px 7px #1a1a1a;color:#1a1a1a;display:block;font-size:1.4em;padding:9px 13px;width:100%;margin-bottom:10px;}
-article .lista_superior{border-bottom:2px solid #d5d5d5;}
+article .lista_superior{border-bottom:2px solid #d5d5d5;}article .lista_superior li{float:left;color:#005580;}
 article .noticia{margin-bottom:15px;}
 article .noticia_detalle .categorias{height:30px;margin-top:17px;}article .noticia_detalle .categorias span{color:#444;float:left;font-weight:bold;margin-right:10px;}
 article .noticia_detalle .categorias .link li{background:#d5d5d5;border-radius:5px;box-shadow:0px 0px 2px #111;float:left;padding:1px 7px;margin-right:10px;}article .noticia_detalle .categorias .link li:hover{background:#cdcdcd;box-shadow:0px 0px 4px #111;}
 article .noticia_detalle .categorias .link li a{color:#484848;}
-article .noticia_detalle .autor{font-weight:bold;margin-top:-10px;margin-bottom:5px;}
-article .noticia_detalle .autor_descrip img{border:1px solid #888888;float:left;margin-right:10px;}
-article .noticia_detalle .datos{color:#777;font-size:0.9em;margin-top:-16px;margin-bottom:19px;}
-footer{background:#1a1a1a;box-shadow:0px -4px 10px -2px #000000;margin-top:35px;padding-top:16px;color:#eeeeee;}footer .lista{width:30%;}footer .lista .menu{font-size:16px;font-weight:bold;text-align:center;padding-bottom:13px;}
+article #gallery{float:left;margin-bottom:100px;margin-top:15px;}article #gallery li{list-style:none;perspective:100px;-webkit-perspective:100px;margin:1px;float:left;position:relative;transition:.1s;-webkit-transition:0.1s;padding:0px 8px 10px 8px ;}article #gallery li:hover{transform:scale(1.5);-webkit-transform:scale(1.5);z-index:2;}article #gallery li:hover img{transform:scale(1.2);-webkit-transform:scale(1.2);}
+article #gallery a{display:block;width:100px;height:66px;vertical-align:bottom;overflow:hidden;background:rgba(0, 0, 0, 0.1);transition:0.4s ease-out;-webkit-transition:0.4s ease-out;-webkit-transform:rotatex(90deg) translatey(-50%);transform:rotatex(90deg) translatey(-50%);-webkit-transform:rotatex(0deg) translatey(0);transform:rotatex(0deg) translatey(0);}article #gallery a:active,article #gallery a:focus{outline:none;}
+article #gallery a:hover{box-shadow:0 0 0 2px #FFF, 0 0 20px 5px #000;transition:.1s;-webkit-transition:0.1s;}
+article #gallery a img{min-height:100%;min-width:100%;transition:0.3s ease-out;-webkit-transition:0.3s ease-out;}
+article #autores{display:block;margin-top:4px;width:100%;float:left;}article #autores li.separador{float:left;height:1px;width:100%;margin:5px 0px;background:#c8c8c8;}
+article #autores li.item{width:100%;float:left;padding:15px 7px;border-radius:10px;transition:0.3s ease-out;}article #autores li.item img{width:100px;height:66px;float:left;border-radius:50px;border:2px solid #1a1a1a;}
+article #autores li.item .datos_autor{display:block;float:left;margin-left:12px;margin-top:4px;width:81%;}article #autores li.item .datos_autor span{font-weight:bold;}
+article #autores li.item:hover{background:#d5d5d5;}
+article .autor{font-weight:bold;margin-top:-10px;margin-bottom:5px;}
+article .autor_descrip img{border:1px solid #888888;float:left;margin-right:10px;float:left;}
+article .datos{color:#777;font-size:0.9em;margin-top:-16px;margin-bottom:19px;}
+@media all and (max-width:700px){.main h1{font-size:5.2em;} .main h2{font-size:1.5em;} #gallery li{margin:0;} #gallery a{width:50px;height:45px;}}footer{background:#1a1a1a;box-shadow:0px -4px 10px -2px #000000;margin-top:35px;padding-top:16px;color:#eeeeee;}footer .lista{width:30%;}footer .lista .menu{font-size:16px;font-weight:bold;text-align:center;padding-bottom:13px;}
 footer .lista a{padding:8px 10px;display:block;color:#959595;}footer .lista a:hover{color:#eeeeee;}
 footer .linea{border-right:1px solid #959595;border-left:1px solid #959595;}

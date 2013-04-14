@@ -78,17 +78,16 @@
 						</li>
 						<li class="principal"><a class="menu" href="#">Galeria</a>
 							<ul>
-								<li><a href="#">Evento 1</a></li>
-								<li><a href="#">Clientes</a></li>
-								<li><a href="#">Permisos</a></li>
-								<li><a href="#">Paquetes</a></li>
+								{% for gal in m_galerias %}
+								    <li><a href="{% url 'ver_galeria' gal.codigo %}">{{gal.titulo}} 1</a></li>
+								{% endfor %}
 							</ul>
 						</li>
 						<li class="principal"><a class="menu" href="#">Agenda</a></li>
 						<li class="principal"><a class="menu" href="#">Principales Asociados</a>
 							<ul>
-								{% for asociado in asociados %}
-									<li><a target="_blank" href="{{asociado.url}}">{{asociado.nombre}}</a></li>
+								{% for asociado in m_asociados %}
+								    <li><a target="_blank" href="{{asociado.url}}">{{asociado.nombre}}</a></li>
 								{% endfor %}
 							</ul>
 						</li>
@@ -120,7 +119,7 @@
 					<li class="menu">Enlaces</li>
 					<li>
 						<ul>
-							{% for asociado in asociados %}
+							{% for asociado in m_asociados %}
 								{% if asociado.importante %}
 									<li><a target="_blank" href="{{asociado.url}}">{{asociado.nombre}}</a></li>
 								{% endif %}
@@ -134,9 +133,9 @@
 					<li>
 						<ul>
 							<li><a href="#">Contáctenos</a></li>
-							<li><a href="#">Personal</a></li>
-							<li><a href="#">Quienes Somos</a></li>
-							<li><a href="#">Misión y Visión</a></li>
+							<li><a href="{% url 'ver_autores' %}">Personal</a></li>
+							<li><a href="{% url 'ver_nosotros' %}">Quienes Somos</a></li>
+							<li><a href="{% url 'ver_mision' %}">Misión y Visión</a></li>
 						</ul>
 					</li>
 				</ul>

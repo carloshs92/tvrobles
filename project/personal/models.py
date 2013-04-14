@@ -10,7 +10,7 @@ class Personal(models.Model):
     descripcion = models.TextField(verbose_name=u'Acerca del Autor', max_length=150)
     website = models.URLField(verbose_name=u'Página Web (opcional)', blank=True, null=True)
     fecha_creacion = models.DateTimeField(auto_now=True)
-    imagen = models.ImageField(verbose_name=u'Foto', upload_to='autores/')
+    imagen = models.URLField(verbose_name=u'Foto')
     tipo = models.IntegerField(verbose_name=u'Cargo', choices=CARGOS)
 
     class Meta:
