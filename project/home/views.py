@@ -5,6 +5,8 @@ from django.template import RequestContext
 from publicaciones.models import Noticias
 from multimedia.models import Galeria, Foto
 from enlaces.models import Asociados
+from personal.models import Personal
+from utilidades.constantes import CARGOS
 
 
 def get_menu_lateral():
@@ -61,8 +63,26 @@ def ver_nosotros(request):
             context_instance=RequestContext(request))
 
 
+def contactar(request):
+    data = get_menu_lateral()
+    return render_to_response(
+            'home/nosotros.html', data,
+            context_instance=RequestContext(request))
+
+
 def ver_autores(request):
     data = get_menu_lateral()
+    personal = Personal.objects.filter(estado=1)
+    lista = list()
+    cargos = dict(CARGOS)
+    for per in personal:
+        dic = {'nombre': per.nombre,
+               'apellido': per.apellido,
+               'imagen': per.imagen,
+               'tipo': cargos[per.tipo],
+               'descripcion': per.descripcion}
+        lista.append(dic)
+    data['personal'] = lista
     return render_to_response(
             'home/autores.html', data,
             context_instance=RequestContext(request))

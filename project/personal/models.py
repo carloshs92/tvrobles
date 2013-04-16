@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from utilidades.constantes import CARGOS
+from utilidades.constantes import CARGOS, ESTADOS
 
 
 class Personal(models.Model):
@@ -12,6 +12,7 @@ class Personal(models.Model):
     fecha_creacion = models.DateTimeField(auto_now=True)
     imagen = models.URLField(verbose_name=u'Foto')
     tipo = models.IntegerField(verbose_name=u'Cargo', choices=CARGOS)
+    estado = models.IntegerField(verbose_name=u'Estado', choices=ESTADOS)
 
     class Meta:
         db_table = u'tb_personal'

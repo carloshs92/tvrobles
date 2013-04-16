@@ -39,3 +39,21 @@ class Noticias(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
+
+#http://es.calameo.com/
+class Revistas(models.Model):
+    codigo = models.AutoField(verbose_name=u'Código', primary_key=True, db_index=True)
+    titulo = models.CharField(verbose_name=u'Titulo', max_length=55)
+    estado = models.IntegerField(verbose_name=u'Estado', choices=ESTADOS)
+    fecha_creacion = models.DateTimeField(auto_now=True)
+    contenido = models.TextField(verbose_name=u'Contenido')
+    imagen_principal = models.URLField(verbose_name=u'Imagen - Portada (opcional)', blank=True, null=True)
+
+    class Meta:
+        db_table = u"tb_revistas"
+        verbose_name = u'Revista'
+        verbose_name_plural = u'Revistas'
+
+    def __unicode__(self):
+        return self.titulo

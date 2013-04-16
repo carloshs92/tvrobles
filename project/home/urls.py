@@ -9,5 +9,6 @@ urlpatterns = patterns('home.views',
     url(r'^galeria/(?P<gal_id>\d+)/$', 'ver_galeria', name='ver_galeria'),
     url(r'^mision-y-vision/$', 'ver_mision', name='ver_mision'),
     url(r'^nosotros/$', 'ver_nosotros', name='ver_nosotros'),
-    url(r'^integrantes/$', 'ver_autores', name='ver_autores')
+    url(r'^integrantes/$', 'ver_autores', name='ver_autores'),
+    url(r'^contactenos/$', 'contactar', name='contactar')
 )

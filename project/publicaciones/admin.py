@@ -12,3 +12,9 @@ class NoticiasAdmin(admin.ModelAdmin):
     class Media:
         js = (STATIC_URL + 'js/tinymce/tiny_mce.js',
               STATIC_URL + 'js/editores.js')
+
+
+class RevistasAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'estado', 'fecha_creacion')
+    search_fields = ('titulo',)
+    list_filter = ('fecha_creacion', )
