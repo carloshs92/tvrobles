@@ -22,7 +22,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'tvrobles',                      # Or path to database file if using sqlite3.
         'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': 'inei.2012',                  # Not used with sqlite3.
+        'PASSWORD': 'inei100',                  # Not used with sqlite3.passwrods
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
+    'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
