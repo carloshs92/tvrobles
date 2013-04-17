@@ -68,9 +68,11 @@
 					<ul id="menu_lateral">
 						<li class="principal"><a class="menu" href="#">Notas de Prensa</a>
 							<ul>
-								<li><a href="#">Notas de Prensa</a></li>
-								<li><a href="#">Solicitud de Servicio</a></li>
-								<li><a href="#">Solicitud de Servicio</a></li>
+								<li><a href="/">Notas de Prensa</a></li>
+								{% if m_revistas != None %}
+								<li><a href="{% url 'ver_revista' m_revistas.codigo %}">Revistas</a></li>
+								{% endif %}
+								<li><a href="{% url 'ver_calendario' %}">Calendario de Eventos</a></li>
 								<li><a href="#">Solicitud de Servicio</a></li>
 								<li><a href="#">Solicitud de Servicio</a></li>
 								<li><a href="#">Solicitud de Servicio</a></li>	
@@ -108,9 +110,9 @@
 					<li class="menu">Redes Sociales</li>
 					<li>
 						<ul>
-							<li><a href="https://www.facebook.com/TvRobles">Facebook</a></li>
-							<li><a href="https://twitter.com/TVRobles">Twitter</a></li>
-							<li><a href="http://www.youtube.com/user/faculetras">Youtube</a></li>
+							<li><a target="_blank" href="https://www.facebook.com/TvRobles">Facebook</a></li>
+							<li><a target="_blank" href="https://twitter.com/TVRobles">Twitter</a></li>
+							<li><a target="_blank" href="http://www.youtube.com/user/faculetras">Youtube</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -132,7 +134,7 @@
 					<li class="menu">Acerca de TV Robles</li>
 					<li>
 						<ul>
-							<li><a href="#">Contáctenos</a></li>
+							<li><a href="{% url 'contactar' %}">Contáctenos</a></li>
 							<li><a href="{% url 'ver_autores' %}">Personal</a></li>
 							<li><a href="{% url 'ver_nosotros' %}">Quienes Somos</a></li>
 							<li><a href="{% url 'ver_mision' %}">Misión y Visión</a></li>

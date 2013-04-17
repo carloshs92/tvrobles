@@ -10,5 +10,7 @@ urlpatterns = patterns('home.views',
     url(r'^mision-y-vision/$', 'ver_mision', name='ver_mision'),
     url(r'^nosotros/$', 'ver_nosotros', name='ver_nosotros'),
     url(r'^integrantes/$', 'ver_autores', name='ver_autores'),
-    url(r'^contactenos/$', 'contactar', name='contactar')
+    url(r'^contactenos/$', 'contactar', name='contactar'),
+    url(r'^revista-online/(?P<rev_id>\d+)/$', 'ver_revista', name='ver_revista'),
+    url(r'^calendario/$', 'ver_calendario', name='ver_calendario')
 )

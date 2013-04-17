@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+<div class="row-fluid">
+    <ul class="span12 lista_superior">
+        <li><a href="{% url 'index' %}">Inicio</a> > </li>
+        <li><a href="#">Revistas</a> > </li>
+        <li><a href="{% url 'ver_revista' revista.codigo %}">{{revista.titulo}}</a></li>
+    </ul>
+</div>
+<div class="row-fluid noticia_detalle">
+    <h2>{{revista.titulo}}</h2>
+
+    <div class="contenido">
+        {{revista.contenido|safe}}
+    </div>
+</div>
+
+
+{% endblock %}

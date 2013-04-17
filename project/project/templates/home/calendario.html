@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+<div class="row-fluid">
+    <ul class="span12 lista_superior">
+        <li><a href="{% url 'index' %}">Inicio</a> > </li>
+        <li><a href="{% url 'ver_calendario' %}">Calendario de Eventos</a></li>
+    </ul>
+</div>
+<div class="row-fluid noticia_detalle">
+    {% comment %}
+    <h2>Calendario de Eventos</h2>
+    {% endcomment %}
+    <div class="contenido">
+        <iframe src="https://www.google.com/calendar/htmlembed?src=%23contacts%40group.v.calendar.google.com&ctz=America/Lima" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+</div>
+
+
+{% endblock %}

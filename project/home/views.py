@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
-from publicaciones.models import Noticias
+from publicaciones.models import Noticias, Revistas
 from multimedia.models import Galeria, Foto
 from enlaces.models import Asociados
 from personal.models import Personal
@@ -13,8 +13,13 @@ def get_menu_lateral():
     data = {}
     galerias = Galeria.objects.filter(estado=1).order_by('-fecha_creacion')[:4]
     asociados = Asociados.objects.filter(estado=1).order_by('-pk')[:4]
+    try:
+        revistas = Revistas.objects.filter(estado=1).order_by('-pk')[0]
+    except:
+        revistas = None
     data['m_galerias'] = galerias
     data['m_asociados'] = asociados
+    data['m_revistas'] = revistas
     return data
 
 
@@ -66,7 +71,16 @@ def ver_nosotros(request):
 def contactar(request):
     data = get_menu_lateral()
     return render_to_response(
-            'home/nosotros.html', data,
+            'home/contactenos.html', data,
+            context_instance=RequestContext(request))
+
+
+def ver_revista(request, rev_id):
+    revista = get_object_or_404(Revistas, pk=rev_id)
+    data = get_menu_lateral()
+    data['revista'] = revista
+    return render_to_response(
+            'home/revista_online.html', data,
             context_instance=RequestContext(request))
 
 
@@ -85,5 +99,12 @@ def ver_autores(request):
     data['personal'] = lista
     return render_to_response(
             'home/autores.html', data,
+            context_instance=RequestContext(request))
+
+
+def ver_calendario(request):
+    data = get_menu_lateral()
+    return render_to_response(
+            'home/calendario.html', data,
             context_instance=RequestContext(request))
 

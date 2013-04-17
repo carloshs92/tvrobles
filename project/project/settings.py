@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for project project.
 from os.path import dirname, join, realpath, split
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 #import dj_database_url
 #import os
 
@@ -22,7 +23,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'tvrobles',                      # Or path to database file if using sqlite3.
         'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': 'inei100',                  # Not used with sqlite3.passwrods
+        'PASSWORD': 'inei.2012',                  # Not used with sqlite3.passwrods
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -112,6 +113,11 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
 )
 
 MIDDLEWARE_CLASSES = (
