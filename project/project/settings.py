@@ -44,7 +44,6 @@ DATABASES = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'portalineiperu@gmail.com'
-EMAIL_HOST_PASSWORD = 'inei.2012'
 EMAIL_USE_TLS = True
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
