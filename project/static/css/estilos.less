@@ -1,0 +1,62 @@
+@color1: #1A1A1A;
+@color2: #2F6829;
+@color_contraste: #FFFEE0;
+@fondo: #EEE;   
+ul li{list-style-type: none;}
+a:hover{text-decoration: none;}
+body{background-color: @fondo;font-size: 14px;color: @color1;}
+.navbar{.brand{float: right;}}
+#slidorion{
+    margin-bottom: 20px;
+    margin-left: 0px;
+    position: static;
+    width: 100%;
+    box-shadow: 0 0 20px @color1;
+    background: @color1;
+    border: 1px solid @color1;
+    #slider {width: 76%;}
+    #accordion {width: 23%;
+    .link-header{background: -moz-linear-gradient(top, lighten(@color2, 15%) 59%,lighten(@color2, 5%) 100%);}
+    .link-header:hover{background: lighten(@color2, 15%);}
+    .active{background: @color2!important;}}
+    }
+header{
+    background: @color2;box-shadow: 0px 4px 10px -2px black;margin-top: 40px;margin-bottom: 20px;
+    .descripcion{float: left;width: 400px;}
+    h1{font-size: 4.0em;float: left;padding: 10px 0;}
+    h3{float: left;margin-top: -10px;}
+    form{float: right;margin-top: 40px;.btn{margin-top: -10px;}}
+}
+
+section{
+    aside{height: auto;float: left;
+    ul#menu_lateral{margin-top: 20px;
+    li{ padding: 5px 1px; a{color: darken(@color1, 5%);}}
+    li.principal{width: 80%;
+    .menu{background:@color2;border-radius: 5px;box-shadow: 0px 0px 7px @color1;color: @color1;display: block;font-size: 1.4em;padding: 9px 13px;width: 100%;margin-bottom: 10px;}}}}
+    }
+    
+article{
+    .lista_superior{border-bottom: 2px solid darken(@fondo, 10%);}
+    .noticia{margin-bottom: 15px;}
+    .noticia_detalle{
+        .categorias{height: 30px;margin-top: 17px;
+            span{color: #444;float: left;font-weight: bold;margin-right: 10px;}
+            .link li{background: darken(@fondo, 10%);border-radius: 5px;box-shadow: 0px 0px 2px #111;float: left;padding: 1px 7px;margin-right: 10px;
+            &:hover{background: darken(@fondo, 13%);box-shadow: 0px 0px 4px #111;}
+            a{color: darken(@fondo, 65%);}}}
+        .autor{font-weight: bold;margin-top: -10px;margin-bottom: 5px;}
+        .autor_descrip{
+            img{border: 1px solid darken(@fondo, 40%);float: left;margin-right: 10px;}}
+        .datos{color: #777;font-size: 0.9em;margin-top: -16px;margin-bottom: 19px;}}
+    }
+    
+footer{
+    
+    .lista{width: 30%;
+    .menu{font-size: 16px;font-weight: bold;text-align: center;padding-bottom: 13px;}
+    a{padding: 8px 10px;display: block;color: darken(@fondo, 35%);
+    &:hover{color: @fondo}}}
+    .linea{border-right: 1px solid darken(@fondo, 35%);border-left: 1px solid darken(@fondo, 35%);}    
+    background: @color1;box-shadow: 0px -4px 10px -2px black;margin-top: 35px;padding-top: 16px;color: @fondo;
+    }

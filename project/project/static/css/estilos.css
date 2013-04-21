@@ -1,13 +1,13 @@
 /* CSS crunched with Crunch - http://crunchapp.net/ */
 ul li{list-style-type:none;}
 a:hover{text-decoration:none;}
-body{background-color:#eeeeee;font-size:14px;color:#1a1a1a;}
+body{background-color:#eeeeee;background:url(../img/body.jpg);font-size:14px;color:#1a1a1a;}
 .navbar .brand{float:right;}
 #slidorion{margin-bottom:20px;margin-left:0px;position:static;width:100%;box-shadow:0 0 20px #1a1a1a;background:#1a1a1a;border:1px solid #1a1a1a;}#slidorion #slider{width:76%;}
 #slidorion #accordion{width:23%;}#slidorion #accordion .link-header{background:-moz-linear-gradient(top, #489f3f 59%, #377a30 100%);}
 #slidorion #accordion .link-header:hover{background:#489f3f;}
 #slidorion #accordion .active{background:#2f6829 !important;}
-header{background:#2f6829;box-shadow:0px 4px 10px -2px #000000;margin-top:40px;margin-bottom:20px;}header .descripcion{float:left;width:400px;}
+header{background:#2f6829;box-shadow:0px 4px 10px -2px #000000;margin-top:40px;margin-bottom:20px;}header .descripcion{width:400px;text-indent:-9999999px;}
 header h1{font-size:4.0em;float:left;padding:10px 0;}
 header h3{float:left;margin-top:-10px;}
 header form{float:right;margin-top:40px;}header form .btn{margin-top:-10px;}

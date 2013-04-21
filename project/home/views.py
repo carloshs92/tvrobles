@@ -7,7 +7,9 @@ from multimedia.models import Galeria, Foto
 from enlaces.models import Asociados
 from personal.models import Personal
 from utilidades.constantes import CARGOS
-
+from home.forms import ContactForm
+from utilidades.scripts import DivErrorList
+from django.contrib import messages
 
 def get_menu_lateral():
     data = {}
@@ -69,7 +71,27 @@ def ver_nosotros(request):
 
 
 def contactar(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST, error_class=DivErrorList)
+        if form.is_valid():
+            mensaje_envio = request.POST['contenido'] == '' and request.POST['web'] or request.POST['contenido'] + '- Pagina web: %s' % request.POST['web']
+            recipients = ['carlos.hs.92@gmail.com']
+
+            from django.core.mail import send_mail
+            send_mail('contactenos - %s' % request.POST['nombres'],
+                      mensaje_envio + ' - Correo: ' + request.POST['correo'],
+                      'portalineiperu@gmail.com', recipients)
+
+            form.cleaned_data['nombres']
+            form.cleaned_data['correo']
+            form.cleaned_data['web']
+            form.cleaned_data['contenido']
+            messages.add_message(request, messages.SUCCESS, "Su mensaje ha sido enviado")
+
+    else:
+        form = ContactForm(error_class=DivErrorList)
     data = get_menu_lateral()
+    data['form'] = form
     return render_to_response(
             'home/contactenos.html', data,
             context_instance=RequestContext(request))

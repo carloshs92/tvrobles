@@ -35,26 +35,28 @@
 				
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="#">Ingresa</a></li>
-						<li><a href="#">Registrate</a></li>
-						<li><a href="#">Contáctenos</a></li>
+						<li><a href="{% url 'index' %}">Inicio</a></li>
+						<li><a href="{% url 'index' %}">Noticias</a></li>
+						<li><a href="{% url 'contactar' %}">Contáctenos</a></li>
 					</ul>
 				</div>
-				<a class="brand" href="#">TV Robles</a>
+				<a class="brand" href="{% url 'index' %}">TV Robles</a>
 				</div>
 			</div>
 		</div>
 		
 		
-		<header id="overview" class="jumbotron subhead hidden-phone hidden-tablet">				
-			<div class="container">
+		<header id="overview" class="jumbotron subhead hidden-phone hidden-tablet" >				
+			<div class="container"  style="height: 115px;background:url({{STATIC_URL}}/img/banner.jpg) no-repeat;">
+				<a href="{% url 'index' %}" title="inicio" style="width: 280px;height: 110px;display: block;float: left;">
+				</a>
 				<div class="descripcion">
 					<h1>TV ROBLES</h1>
 					<h3>Una gran idea</h3>
 				</div>					
 				<form>
-					<input type="text" />
-					<input type="submit" value="Buscar" class="btn btn-inverse"/>
+                                        <input  style='background:rgba(250, 250, 250, 0.6);' type="text"/>
+                                        <input type="submit" value="Buscar" class="btn btn-inverse"/>
 				</form>				
 			</div>
 		</header>
@@ -73,10 +75,7 @@
 								<li><a href="{% url 'ver_revista' m_revistas.codigo %}">Revistas</a></li>
 								{% endif %}
 								<li><a href="{% url 'ver_calendario' %}">Calendario de Eventos</a></li>
-								<li><a href="#">Solicitud de Servicio</a></li>
-								<li><a href="#">Solicitud de Servicio</a></li>
-								<li><a href="#">Solicitud de Servicio</a></li>	
-							</ul>
+                                                            </ul>
 						</li>
 						<li class="principal"><a class="menu" href="#">Galeria</a>
 							<ul>
@@ -104,7 +103,7 @@
 		</div>
 		
 		
-		<footer id="overview" class="jumbotron subhead hidden-phone hidden-tablet">				
+		<footer id="overview" class="jumbotron subhead hidden-phone hidden-tablet" style="background:url({{STATIC_URL}}/img/footer.jpg) center">				
 			<div class="container">			
 				<ul class="span3 lista">
 					<li class="menu">Redes Sociales</li>
@@ -117,7 +116,7 @@
 					</li>
 				</ul>
 				
-				<ul class="span3 linea lista">
+				<ul class="span3 lista">
 					<li class="menu">Enlaces</li>
 					<li>
 						<ul>
