@@ -42,6 +42,7 @@ class Noticias(models.Model):
 
 
 #http://es.calameo.com/
+#http://issuu.com/
 class Revistas(models.Model):
     codigo = models.AutoField(verbose_name=u'Código', primary_key=True, db_index=True)
     titulo = models.CharField(verbose_name=u'Titulo', max_length=55)
