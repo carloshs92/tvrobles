@@ -14,7 +14,7 @@ class Galeria(models.Model):
     imagen_portada = models.URLField(verbose_name=u'Imagen Portada')
 
     class Meta:
-        db_table = u'tb_galeria'
+        db_table = u'tb_galerias'
         verbose_name = u'Galeria'
         verbose_name_plural = u'Galerias'
 
@@ -29,7 +29,7 @@ class Foto(models.Model):
     imagen = models.URLField(verbose_name=u'Foto')
     galeria = models.ForeignKey(Galeria, verbose_name=u'Galeria')
     class Meta:
-        db_table = u'tb_foto'
+        db_table = u'tb_fotos'
         verbose_name = u'Foto'
         verbose_name_plural = u'Fotos'
 

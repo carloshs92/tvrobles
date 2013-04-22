@@ -15,7 +15,7 @@ class Personal(models.Model):
     estado = models.IntegerField(verbose_name=u'Estado', choices=ESTADOS)
 
     class Meta:
-        db_table = u'tb_personal'
+        db_table = u'tb_equipo'
         verbose_name = u'Personal'
         verbose_name_plural = u'Personal'
 
