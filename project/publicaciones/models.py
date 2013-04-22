@@ -33,7 +33,7 @@ class Noticias(models.Model):
     categoria = models.ManyToManyField(Categorias, verbose_name=u'Categoría')
 
     class Meta:
-        db_table = u'tb_noticias'
+        db_table = u'tb_noticia'
         verbose_name = u'Noticia'
         verbose_name_plural = u'Noticias'
 
