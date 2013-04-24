@@ -36,7 +36,7 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="{% url 'index' %}">Inicio</a></li>
-						<li><a href="{% url 'index' %}">Noticias</a></li>
+						<li><a target="_blank" href="http://tvrobles.lamula.pe">Foro TvRobles</a></li>
 						<li><a href="{% url 'contactar' %}">Contáctenos</a></li>
 					</ul>
 				</div>
@@ -71,6 +71,7 @@
 						<li class="principal"><a class="menu" href="#">Notas de Prensa</a>
 							<ul>
 								<li><a href="/">Notas de Prensa</a></li>
+								<li><a target="_blank" href="http://tvrobles.lamula.pe">Foro TvRobles</a></li>
 								{% if m_revistas != None %}
 								<li><a href="{% url 'ver_revista' m_revistas.codigo %}">Revistas</a></li>
 								{% endif %}
