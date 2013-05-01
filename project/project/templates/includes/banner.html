@@ -1,16 +1,16 @@
 <div id="slidorion" class="hidden-phone hidden-tablet" style="float:left;">
-	<div id="slider">
-		{% for portada in portadas %}
-			<div class="slide"><img src="{{portada.imagen_principal}}" alt="" /></div>
-		{% endfor %}
-	</div>
-	
-	<div id="accordion">
-		{% for portada in portadas %}
-		<div class="link-header">{{portada.titulo}}</div>
-		<div class="link-content">
-			<p>{{portada.contenido|striptags|safe|truncatewords:25}} <a href="{% url 'ver_noticia' portada.codigo %}"> ver más</a></p>
-		</div>
-		{% endfor %}
-	</div>
+    <div id="slider">
+        {% for portada in portadas %}
+            <div class="slide"><img src="{{portada.imagen_principal}}" alt="" /></div>
+        {% endfor %}
+    </div>
+
+    <div id="accordion">
+        {% for portada in portadas %}
+            <div class="link-header">{{portada.titulo}}</div>
+            <div class="link-content">
+                <p>{{portada.contenido|striptags|safe|truncatewords:25}} <a href="{% url 'ver_noticia' portada.codigo portada.url_amigable %}"> ver más</a></p>
+            </div>
+        {% endfor %}
+    </div>
 </div>

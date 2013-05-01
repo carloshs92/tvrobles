@@ -2,9 +2,11 @@
 
 {% block contenido %}
 <div class="row-fluid">
-	<ul class="span12 lista_superior">
-		<li><a href="{% url 'index' %}">Inicio</a></li>
-	</ul>
+        <ul class="span12 lista_superior breadcrumb">
+        <li><a href="{% url 'index' %}">Inicio</a><span class="divider">/</span></li>
+        <li><a href="#">Noticias</a><span class="divider">/</span></li>
+        <li><a href="{% url 'ver_noticia' noticia.codigo noticia.url_amigable %}">{{noticia.titulo}}</a></li>
+    </ul>
 </div>
 <div class="row-fluid noticia_detalle">
         <h2>{{noticia.titulo}}</h2>
@@ -16,18 +18,41 @@
             <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
         </div>
-        <div class="contenido">
+        <div class="contenido" style="margin-bottom:25px;">
             {{noticia.contenido|safe}}
         </div>
 
-        <div class="categorias">
+
+
+        {% if noticia.galeria != '' %}
+        <h4><a href="{% url 'ver_galeria' noticia.galeria.codigo noticia.galeria.url_amigable %}">Ver Galeria de {{noticia.galeria.titulo}}</a></h4>
+
+        <div class="autor_descrip" style="display: block;width: 100%;float: left;margin-bottom:25px;">
+            <a href="{% url 'ver_galeria' noticia.galeria.codigo noticia.galeria.url_amigable %}">
+                <img src="{{noticia.galeria.imagen_portada}}" width="120"/>
+            </a>
+            <span>{{noticia.galeria.descripcion}}</span>
+        </div>
+        {% endif %}
+        <div class="categorias"  style="display: block;width: 100%;float: left;margin-bottom:25px;">
             <span>Categorias</span><ul class="link">{% for cat in noticia.categoria.all %}<li><a href="#">{{cat.titulo}}</a></li>{% endfor %}</ul>
         </div>
 
+
         <h3>Sobre el autor</h3>
-        <div class="autor">{{noticia.autor.nombre}} {{noticia.autor.apellido}}</div>
+        <div class="autor">
+            {% if noticia.autor.website != '' %}
+                <a href="{{noticia.autor.website}}" target="_blank">{{noticia.autor.nombre}} {{noticia.autor.apellido}}</a>
+            {% else %}
+                {{noticia.autor.nombre}} {{noticia.autor.apellido}}
+            {% endif %}
+        </div>
         <div class="autor_descrip">
-            <img src="{{noticia.autor.imagen}}" width="120"/>
+            {% if noticia.autor.website != '' %}
+                <a href="{{noticia.autor.website}}" target="_blank"><img src="{{noticia.autor.imagen}}" width="120"/></a>
+            {% else %}
+                <img src="{{noticia.autor.imagen}}" width="120"/>
+            {% endif %}
             <span>{{noticia.autor.descripcion}}</span>
         </div>
 </div>

@@ -11,6 +11,7 @@ from home.forms import ContactForm
 from utilidades.scripts import DivErrorList
 from django.contrib import messages
 
+
 def get_menu_lateral():
     data = {}
     galerias = Galeria.objects.filter(estado=1).order_by('-fecha_creacion')[:4]
@@ -36,7 +37,7 @@ def index(request):
             context_instance=RequestContext(request))
 
 
-def ver_noticia(request, not_id):
+def ver_noticia(request, not_id, url_amigable):
     noticia = get_object_or_404(Noticias, pk=not_id)
     data = get_menu_lateral()
     data['noticia'] = noticia
@@ -45,7 +46,7 @@ def ver_noticia(request, not_id):
             context_instance=RequestContext(request))
 
 
-def ver_galeria(request, gal_id):
+def ver_galeria(request, gal_id, url_amigable):
     galeria = get_object_or_404(Galeria, pk=gal_id)
     fotos = Foto.objects.filter(galeria=gal_id, galeria__estado=1)
     data = get_menu_lateral()
@@ -97,7 +98,7 @@ def contactar(request):
             context_instance=RequestContext(request))
 
 
-def ver_revista(request, rev_id):
+def ver_revista(request, rev_id, url_amigable):
     revista = get_object_or_404(Revistas, pk=rev_id)
     data = get_menu_lateral()
     data['revista'] = revista

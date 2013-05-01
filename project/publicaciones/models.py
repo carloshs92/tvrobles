@@ -3,6 +3,7 @@ from django.db import models
 from utilidades.constantes import ESTADOS
 from personal.models import Personal
 from multimedia.models import Galeria
+from django.template.defaultfilters import slugify
 
 
 class Categorias(models.Model):
@@ -28,9 +29,12 @@ class Noticias(models.Model):
     autor = models.ForeignKey(Personal, verbose_name=u'Autor')
     imagen_principal = models.URLField(verbose_name=u'Imagen - Banner (opcional)', blank=True, null=True)
     imagen_reporte = models.URLField(verbose_name=u'Imagen - Reporte')
-    video = models.URLField(verbose_name=u'Video (opcional)', blank=True, null=True)
+    video = models.TextField(verbose_name=u'Video (opcional)', blank=True, null=True)
     galeria = models.ForeignKey(Galeria, verbose_name=u'Galeria (opcional)', blank=True, null=True,)
     categoria = models.ManyToManyField(Categorias, verbose_name=u'Categoría')
+
+    def url_amigable(self):
+        return str(slugify(self.titulo))
 
     class Meta:
         db_table = u'tb_noticia'
@@ -49,7 +53,9 @@ class Revistas(models.Model):
     estado = models.IntegerField(verbose_name=u'Estado', choices=ESTADOS)
     fecha_creacion = models.DateTimeField(auto_now=True)
     contenido = models.TextField(verbose_name=u'Contenido')
-    imagen_principal = models.URLField(verbose_name=u'Imagen - Portada (opcional)', blank=True, null=True)
+
+    def url_amigable(self):
+        return str(slugify(self.titulo))
 
     class Meta:
         db_table = u"tb_revistas"

@@ -2,6 +2,7 @@
 from django.db import models
 from utilidades.constantes import ESTADOS
 from personal.models import Personal
+from django.template.defaultfilters import slugify
 
 
 class Galeria(models.Model):
@@ -12,6 +13,9 @@ class Galeria(models.Model):
     fecha_creacion = models.DateTimeField(auto_now=True)
     autor = models.ForeignKey(Personal, verbose_name=u'Fotografo')
     imagen_portada = models.URLField(verbose_name=u'Imagen Portada')
+
+    def url_amigable(self):
+        return str(slugify(self.titulo))
 
     class Meta:
         db_table = u'tb_galerias'
