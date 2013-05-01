@@ -24,7 +24,7 @@
 
 
 
-        {% if noticia.galeria != '' %}
+        {% if noticia.galeria.codigo > 0 %}
         <h4><a href="{% url 'ver_galeria' noticia.galeria.codigo noticia.galeria.url_amigable %}">Ver Galeria de {{noticia.galeria.titulo}}</a></h4>
 
         <div class="autor_descrip" style="display: block;width: 100%;float: left;margin-bottom:25px;">
